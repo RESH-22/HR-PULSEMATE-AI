@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-navy-900 font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight-2;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl shadow-card p-6 border border-slate-100/80;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 ease-smooth hover:shadow-card-lift hover:border-slate-200;
+  }
+
+  .card-tight {
+    @apply bg-white rounded-2xl shadow-card p-5 border border-slate-100/80;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 text-white font-medium text-sm
+           transition-all duration-150 ease-smooth hover:bg-brand-700 hover:shadow-btn active:scale-[0.98]
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:hover:scale-100;
+  }
+
+  .btn-primary-lg {
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-brand-600 text-white font-semibold text-base
+           transition-all duration-150 ease-smooth hover:bg-brand-700 hover:shadow-btn active:scale-[0.98]
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-slate-200 text-navy-800 font-medium text-sm
+           transition-all duration-150 ease-smooth hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98];
+  }
+
+  .btn-secondary-lg {
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-white border border-slate-200 text-navy-800 font-semibold text-base
+           transition-all duration-150 ease-smooth hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-navy-500 font-medium text-sm
+           transition-colors duration-150 hover:bg-slate-100 hover:text-navy-900;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-2xs font-bold uppercase tracking-wide;
+  }
+
+  .badge-sm {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-2xs font-bold uppercase tracking-wide;
+  }
+
+  .input-base {
+    @apply w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm text-navy-900
+           focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-400
+           transition-all duration-150 bg-white placeholder:text-slate-400;
+  }
+
+  .dept-pill {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 ease-smooth;
+  }
+}
+
+/* Custom range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #e2e8f0;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3366ff;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 1px 4px rgba(15,23,42,0.20);
+  transition: transform 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3366ff;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 1px 4px rgba(15,23,42,0.20);
+  border: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade {
+  animation: fadeIn 0.3s ease both;
+}
